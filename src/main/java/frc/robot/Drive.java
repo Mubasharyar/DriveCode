@@ -42,6 +42,7 @@ br.set(ControlMode.PercentOutput, stick.right_input);
 }
 
 public void initialising() {
+    
     br.setInverted(true);
     fr.setInverted(true);
 
@@ -53,15 +54,6 @@ public void initialising() {
 
     br.selectProfileSlot(0,0);
     bl.selectProfileSlot(0,0);
-
-    
-  //  double getVelocity = bl.getSelectedSensorVelocity()*2*Math.PI*60;
- //   br.getSelectedSensorVelocity();
-////////////////////////////////////////////////////////////////////// 
-    bl.config_kP(0, Constants.kP);
-
-    
-
 
 }
 

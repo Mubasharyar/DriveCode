@@ -48,11 +48,18 @@ public class Robot extends TimedRobot {
     joy.butt();
     joy1.butt();
     stickVal = joy1.getRawAxis(1);
+/*Here you can define whether you want the button to run in the Position PID loop or the Magic PID Loop*/    
     if(joy1.getRawButton(1)) joyArm.posMod(0);
     else if(joy1.getRawButton(2)) joyArm.posMod(1);
     else if(joy1.getRawButton(3)) joyArm.posMod(2);
     else if(Math.abs(stickVal)>0.05 || !joyArm.posmod) joyArm.perMod(stickVal);
+
+/////////////* assigns 0 value to the current position of the arm   *//////////
     if(joy1.getRawButton(8))joyArm.arm.setSelectedSensorPosition(0);
+
+
+
+
     System.out.println("enc = "+joyArm.arm.getSelectedSensorPosition()+
     "   mode="+joyArm.posmod+"   error="+joyArm.arm.getClosedLoopError()
     );

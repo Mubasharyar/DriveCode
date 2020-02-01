@@ -25,21 +25,7 @@ public class Stick extends Joystick{
  
     }
     public void readStuff() {
-  /*    Joystick control = new Joystick(0);
-        double forward = control.getRawAxis(1);
-        double sides = control.getRawAxis(0);
-        
-        motors.set_stuff();
-    */
-   /* double forward = this.getRawAxis(Constants.forwardAxis);
-    forward = -(forward*forward*Math.signum(forward));
-    double sides = this.getRawAxis(Constants.turnAxis);
-    // decrease max speed turn
-    sides = sides*sides*Math.signum(sides)*.5;
-    
-    left_input = forward + sides;
-    right_input = forward - sides; 
-    */
+
 
 
     butt();
@@ -119,27 +105,3 @@ public class Stick extends Joystick{
     }
 }
 
- /*       public static void main(String[] args){
-
-            int i = 1;
-            int nuem = 1;
-      
-            int butt[] = new int[3];
-        
-            int buttp[] = new int[3];
-            
-                //System.arraycopy(butt,0,buttp,0,butt.length);
-        
-                while(i<=10)
-                {
-                    butt[i] = nuem;
-                    i++;
-                    System.arraycopy(butt,0,buttp,0,(butt.length - 1));
-        
-                }
-                System.out.println("buttp: " + buttp + " buttcurrent: "+ butt);
-         
-
-        }
-    
-}*/
