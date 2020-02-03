@@ -60,6 +60,8 @@ public class Arm{
     public void perMod(double stickVal){
         posmod=false;
         arm.set(ControlMode.PercentOutput, stickVal);
+        ////nmae///
+
         }
     
 }
