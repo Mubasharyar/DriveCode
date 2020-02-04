@@ -1,31 +1,38 @@
 package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.DemandType;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import edu.wpi.first.wpilibj.Joystick;
+import com.revrobotics.CANPIDController;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 
 public class Arm{
-    TalonSRX arm = new TalonSRX(0);
+    CANSparkMax arm = new CANSparkMax(0, MotorType.kBrushless);
+    CANPIDController pidController;
     double armValue;
     boolean posmod=false;
+    double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
     
 
     public Arm(){
-        arm.configFactoryDefault();
-        arm.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder,0,20);
+        arm.restoreFactoryDefaults();
+        /*arm.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder,0,20);
         arm.setSensorPhase(false);
         arm .setInverted(false);       
         arm.setNeutralMode(NeutralMode.Brake);
-        arm.config_kP(0,15);
-        arm.config_kF(0, 0);
-        arm.config_kD(0, 0);
-        arm.configClosedLoopPeakOutput(0, .75, 20);
-        arm.configMotionCruiseVelocity(500, 20);
-        arm.configMotionAcceleration(1000, 20);
+        */
+        kP = 0;
+
+        pidController = arm.getPIDController();
+        pidController.setP(kP);
+        pidController.setFF(kFF);
+        pidController.setD(kD);
+        pidController.setIZone(kIz);
+        pidController.setFF(kFF);
+        pidController.setOutputRange(kMinOutput, kMaxOutput);
+   
     }
 
 /*               setting arm movements according to the buttons pressed               */

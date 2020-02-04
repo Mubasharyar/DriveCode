@@ -82,7 +82,7 @@ public class Hand {
         if (preset == 3) target = 230;
         if (preset == 4) target =435;   
         armL.set(Magic, target);
-        ////name///
+        
 
     }
 

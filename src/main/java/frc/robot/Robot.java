@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
   Stick joy = new Stick(0);
   Stick joy1 = new Stick(1);
-  Arm joyArm = new Arm();
+  Elevator joyArm = new Elevator();
   Drive motors = new Drive(joy);
   double stickVal;
 
@@ -55,7 +55,7 @@ public class Robot extends TimedRobot {
     else if(Math.abs(stickVal)>0.05 || !joyArm.posmod) joyArm.perMod(stickVal);
 
 /////////////* assigns 0 value to the current position of the arm   *//////////
-    if(joy1.getRawButton(8))joyArm.arm.setSelectedSensorPosition(0);
+    if(joy1.getRawButton(8))joyArm.elevator.setSelectedSensorPosition(0);
 
 
 
